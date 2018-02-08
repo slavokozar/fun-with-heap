@@ -16,8 +16,10 @@ echo $matches;
 function permutations($permutation = []){
     global $numbers, $numbersCount;
 
-    if(count($permutation) == 9){
+    if(count($permutation) == $numbersCount){
+        $permutation[array_search ( 3, $permutation)] = 4;
 
+//        printArray($permutation);
         testPermutation($permutation);
     }else{
         for($i = 0; $i < $numbersCount; $i++){
@@ -34,7 +36,7 @@ function permutations($permutation = []){
 function testPermutation($permutation){
     global $matches;
 
-    $pattern = [9, 7, 8, 6, 4, 2, 3, 1, 5];
+    $pattern = [9, 7, 8, 6, 4, 2, 4, 1, 5];
 
     $permutationCount = count($permutation);
     $heap = [];
